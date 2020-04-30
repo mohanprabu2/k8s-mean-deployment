@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-deployment
+  name: api
 spec:
   selector:
     matchLabels:
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: api
-        image: tomcat:9.0
+        image: mohanprabu2/k8s-mean-ui-angular2
         ports:
-        - containerPort: 8080
+        - containerPort: 80

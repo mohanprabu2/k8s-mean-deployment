@@ -1,19 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api
+  name: ui
 spec:
   selector:
     matchLabels:
-      app: api
+      app: ui
   replicas: 1
   template:
     metadata:
       labels:
-        app: api
+        app: ui
     spec:
       containers:
       - name: api
         image: mohanprabu2/k8s-mean-ui-angular2
         ports:
         - containerPort: 80
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: ui
+  labels:
+    run: ui
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: ui

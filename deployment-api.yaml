@@ -16,7 +16,7 @@ spec:
       - name: api
         image: mohanprabu2/k8s-mean-api-node
         ports:
-        - containerPort: 4200
+        - containerPort: 8000
         env:
         - name: MONGO_DB_IP
           value: 10.244.1.81
@@ -24,13 +24,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: api
+  name: api 
   labels:
     run: api
 spec:
   type: ClusterIP
   ports:
-  - port: 4200
-    targetPort: 4200
+  - port: 8000
+    targetPort: 8000
   selector:
     app: api
